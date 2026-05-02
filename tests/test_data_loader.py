@@ -41,8 +41,8 @@ def test_graph_has_25_nodes(graph: Graph) -> None:
 
 
 def test_graph_has_expected_edge_count(graph: Graph) -> None:
-    """27 current roads + 15 proposed roads = 42 edges total."""
-    assert graph.edge_count == 42
+    """33 current roads + 15 proposed roads = 48 edges total."""
+    assert graph.edge_count == 48
 
 
 def test_graph_has_2_hospitals(graph: Graph) -> None:
@@ -128,7 +128,7 @@ def test_exclude_proposed_roads() -> None:
     loader = DataLoader(data_dir=_SAMPLE_DIR, include_proposed=False)
     graph = loader.load()
     # Without proposed roads there should be 15 fewer edges.
-    assert graph.edge_count == 27
+    assert graph.edge_count == 33
 
 
 def test_missing_data_dir_raises(tmp_path: Path) -> None:
