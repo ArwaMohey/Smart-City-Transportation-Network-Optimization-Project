@@ -1,0 +1,107 @@
+{
+  "metro_lines": [
+    {
+      "line_id": "M1",
+      "name": "Line 1 (Helwan-New Marg)",
+      "stops": ["N12", "N01", "N03", "F2", "N11"],
+      "frequency_minutes": 6,
+      "daily_passengers": 1500000
+    },
+    {
+      "line_id": "M2",
+      "name": "Line 2 (Shubra-Giza)",
+      "stops": ["N11", "F2", "N03", "N10", "N08"],
+      "frequency_minutes": 7,
+      "daily_passengers": 1200000
+    },
+    {
+      "line_id": "M3",
+      "name": "Line 3 (Airport-Imbaba)",
+      "stops": ["F1", "N05", "N02", "N03", "N09"],
+      "frequency_minutes": 10,
+      "daily_passengers": 800000
+    }
+  ],
+  "bus_routes": [
+    {
+      "route_id": "B1",
+      "name": "Route B1",
+      "stops": ["N01", "N03", "N06", "N09"],
+      "frequency_minutes": 12,
+      "buses_assigned": 25,
+      "daily_passengers": 35000
+    },
+    {
+      "route_id": "B2",
+      "name": "Route B2",
+      "stops": ["N07", "N15", "N08", "N10", "N03"],
+      "frequency_minutes": 10,
+      "buses_assigned": 30,
+      "daily_passengers": 42000
+    },
+    {
+      "route_id": "B3",
+      "name": "Route B3",
+      "stops": ["N02", "N05", "F1"],
+      "frequency_minutes": 15,
+      "buses_assigned": 20,
+      "daily_passengers": 28000
+    },
+    {
+      "route_id": "B4",
+      "name": "Route B4",
+      "stops": ["N04", "N14", "N02", "N03"],
+      "frequency_minutes": 14,
+      "buses_assigned": 22,
+      "daily_passengers": 31000
+    },
+    {
+      "route_id": "B5",
+      "name": "Route B5",
+      "stops": ["N08", "N12", "N01"],
+      "frequency_minutes": 16,
+      "buses_assigned": 18,
+      "daily_passengers": 25000
+    },
+    {
+      "route_id": "B6",
+      "name": "Route B6",
+      "stops": ["N11", "N05", "N02"],
+      "frequency_minutes": 13,
+      "buses_assigned": 24,
+      "daily_passengers": 33000
+    },
+    {
+      "route_id": "B7",
+      "name": "Route B7",
+      "stops": ["N13", "N04", "N14"],
+      "frequency_minutes": 18,
+      "buses_assigned": 15,
+      "daily_passengers": 21000
+    },
+    {
+      "route_id": "B8",
+      "name": "Route B8",
+      "stops": ["F7", "N15", "N07"],
+      "frequency_minutes": 20,
+      "buses_assigned": 12,
+      "daily_passengers": 17000
+    },
+    {
+      "route_id": "B9",
+      "name": "Route B9",
+      "stops": ["N01", "N08", "N10", "N09", "N06"],
+      "frequency_minutes": 11,
+      "buses_assigned": 28,
+      "daily_passengers": 39000
+    },
+    {
+      "route_id": "B10",
+      "name": "Route B10",
+      "stops": ["F8", "N04", "N02", "N05"],
+      "frequency_minutes": 15,
+      "buses_assigned": 20,
+      "daily_passengers": 28000
+    }
+  ]
+}

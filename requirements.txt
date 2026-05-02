@@ -1,0 +1,7 @@
+# Smart City Transportation Network – Python dependencies
+#
+# This project uses only the Python standard library.
+# No third-party packages are required to run the core system.
+#
+# Development / testing dependencies:
+pytest>=7.0

@@ -1,0 +1,840 @@
+{
+  "current_roads": [
+    {
+      "from_node": "N01",
+      "to_node": "N03",
+      "distance": 8.5,
+      "base_capacity": 3000,
+      "road_condition": "good",
+      "traffic_factors": {
+        "morning": 3.5,
+        "afternoon": 1.875,
+        "evening": 3.25,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 7,
+      "traffic_flow": {
+        "morning": 2800,
+        "afternoon": 1500,
+        "evening": 2600,
+        "night": 800
+      }
+    },
+    {
+      "from_node": "N01",
+      "to_node": "N08",
+      "distance": 6.2,
+      "base_capacity": 2500,
+      "road_condition": "fair",
+      "traffic_factors": {
+        "morning": 3.667,
+        "afternoon": 2,
+        "evening": 3.5,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 6,
+      "traffic_flow": {
+        "morning": 2200,
+        "afternoon": 1200,
+        "evening": 2100,
+        "night": 600
+      }
+    },
+    {
+      "from_node": "N02",
+      "to_node": "N03",
+      "distance": 5.9,
+      "base_capacity": 2800,
+      "road_condition": "good",
+      "traffic_factors": {
+        "morning": 3.857,
+        "afternoon": 2,
+        "evening": 3.571,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 8,
+      "traffic_flow": {
+        "morning": 2700,
+        "afternoon": 1400,
+        "evening": 2500,
+        "night": 700
+      }
+    },
+    {
+      "from_node": "N02",
+      "to_node": "N05",
+      "distance": 4,
+      "base_capacity": 3200,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 4.615,
+        "afternoon": 2.462,
+        "evening": 4.308,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 9,
+      "traffic_flow": {
+        "morning": 3000,
+        "afternoon": 1600,
+        "evening": 2800,
+        "night": 650
+      }
+    },
+    {
+      "from_node": "N03",
+      "to_node": "N05",
+      "distance": 6.1,
+      "base_capacity": 3500,
+      "road_condition": "good",
+      "traffic_factors": {
+        "morning": 4,
+        "afternoon": 2.125,
+        "evening": 3.875,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 7,
+      "traffic_flow": {
+        "morning": 3200,
+        "afternoon": 1700,
+        "evening": 3100,
+        "night": 800
+      }
+    },
+    {
+      "from_node": "N03",
+      "to_node": "N06",
+      "distance": 3.2,
+      "base_capacity": 2000,
+      "road_condition": "good",
+      "traffic_factors": {
+        "morning": 3.6,
+        "afternoon": 2.8,
+        "evening": 3.8,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 8,
+      "traffic_flow": {
+        "morning": 1800,
+        "afternoon": 1400,
+        "evening": 1900,
+        "night": 500
+      }
+    },
+    {
+      "from_node": "N03",
+      "to_node": "N09",
+      "distance": 4.5,
+      "base_capacity": 2600,
+      "road_condition": "fair",
+      "traffic_factors": {
+        "morning": 4.364,
+        "afternoon": 2.364,
+        "evening": 4,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 6,
+      "traffic_flow": {
+        "morning": 2400,
+        "afternoon": 1300,
+        "evening": 2200,
+        "night": 550
+      }
+    },
+    {
+      "from_node": "N03",
+      "to_node": "N10",
+      "distance": 3.8,
+      "base_capacity": 2400,
+      "road_condition": "good",
+      "traffic_factors": {
+        "morning": 4.6,
+        "afternoon": 2.4,
+        "evening": 4.2,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 7,
+      "traffic_flow": {
+        "morning": 2300,
+        "afternoon": 1200,
+        "evening": 2100,
+        "night": 500
+      }
+    },
+    {
+      "from_node": "N04",
+      "to_node": "N02",
+      "distance": 15.2,
+      "base_capacity": 3800,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 4.8,
+        "afternoon": 2.4,
+        "evening": 4.4,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 9,
+      "traffic_flow": {
+        "morning": 3600,
+        "afternoon": 1800,
+        "evening": 3300,
+        "night": 750
+      }
+    },
+    {
+      "from_node": "N04",
+      "to_node": "N14",
+      "distance": 5.3,
+      "base_capacity": 3000,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 4.667,
+        "afternoon": 2.667,
+        "evening": 4.333,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 10,
+      "traffic_flow": {
+        "morning": 2800,
+        "afternoon": 1600,
+        "evening": 2600,
+        "night": 600
+      }
+    },
+    {
+      "from_node": "N05",
+      "to_node": "N11",
+      "distance": 7.9,
+      "base_capacity": 3100,
+      "road_condition": "good",
+      "traffic_factors": {
+        "morning": 4.462,
+        "afternoon": 2.308,
+        "evening": 4.154,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 7,
+      "traffic_flow": {
+        "morning": 2900,
+        "afternoon": 1500,
+        "evening": 2700,
+        "night": 650
+      }
+    },
+    {
+      "from_node": "N06",
+      "to_node": "N09",
+      "distance": 2.2,
+      "base_capacity": 1800,
+      "road_condition": "good",
+      "traffic_factors": {
+        "morning": 3.778,
+        "afternoon": 2.889,
+        "evening": 4,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 8,
+      "traffic_flow": {
+        "morning": 1700,
+        "afternoon": 1300,
+        "evening": 1800,
+        "night": 450
+      }
+    },
+    {
+      "from_node": "N07",
+      "to_node": "N08",
+      "distance": 24.5,
+      "base_capacity": 3500,
+      "road_condition": "good",
+      "traffic_factors": {
+        "morning": 4.571,
+        "afternoon": 2.429,
+        "evening": 4.286,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 8,
+      "traffic_flow": {
+        "morning": 3200,
+        "afternoon": 1700,
+        "evening": 3000,
+        "night": 700
+      }
+    },
+    {
+      "from_node": "N07",
+      "to_node": "N15",
+      "distance": 9.8,
+      "base_capacity": 3000,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 4.667,
+        "afternoon": 2.5,
+        "evening": 4.333,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 9,
+      "traffic_flow": {
+        "morning": 2800,
+        "afternoon": 1500,
+        "evening": 2600,
+        "night": 600
+      }
+    },
+    {
+      "from_node": "N08",
+      "to_node": "N10",
+      "distance": 3.3,
+      "base_capacity": 2200,
+      "road_condition": "good",
+      "traffic_factors": {
+        "morning": 4.444,
+        "afternoon": 2.444,
+        "evening": 4.222,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 7,
+      "traffic_flow": {
+        "morning": 2000,
+        "afternoon": 1100,
+        "evening": 1900,
+        "night": 450
+      }
+    },
+    {
+      "from_node": "N08",
+      "to_node": "N12",
+      "distance": 14.8,
+      "base_capacity": 2600,
+      "road_condition": "fair",
+      "traffic_factors": {
+        "morning": 4.8,
+        "afternoon": 2.6,
+        "evening": 4.4,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 5,
+      "traffic_flow": {
+        "morning": 2400,
+        "afternoon": 1300,
+        "evening": 2200,
+        "night": 500
+      }
+    },
+    {
+      "from_node": "N09",
+      "to_node": "N10",
+      "distance": 2.1,
+      "base_capacity": 1900,
+      "road_condition": "good",
+      "traffic_factors": {
+        "morning": 4.5,
+        "afternoon": 3,
+        "evening": 4.25,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 7,
+      "traffic_flow": {
+        "morning": 1800,
+        "afternoon": 1200,
+        "evening": 1700,
+        "night": 400
+      }
+    },
+    {
+      "from_node": "N10",
+      "to_node": "N11",
+      "distance": 8.7,
+      "base_capacity": 2400,
+      "road_condition": "fair",
+      "traffic_factors": {
+        "morning": 4.4,
+        "afternoon": 2.6,
+        "evening": 4.2,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 6,
+      "traffic_flow": {
+        "morning": 2200,
+        "afternoon": 1300,
+        "evening": 2100,
+        "night": 500
+      }
+    },
+    {
+      "from_node": "N11",
+      "to_node": "F2",
+      "distance": 3.6,
+      "base_capacity": 2200,
+      "road_condition": "good",
+      "traffic_factors": {
+        "morning": 4.667,
+        "afternoon": 2.667,
+        "evening": 4.444,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 7,
+      "traffic_flow": {
+        "morning": 2100,
+        "afternoon": 1200,
+        "evening": 2000,
+        "night": 450
+      }
+    },
+    {
+      "from_node": "N12",
+      "to_node": "N01",
+      "distance": 12.7,
+      "base_capacity": 2800,
+      "road_condition": "fair",
+      "traffic_factors": {
+        "morning": 4.727,
+        "afternoon": 2.545,
+        "evening": 4.364,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 6,
+      "traffic_flow": {
+        "morning": 2600,
+        "afternoon": 1400,
+        "evening": 2400,
+        "night": 550
+      }
+    },
+    {
+      "from_node": "N13",
+      "to_node": "N04",
+      "distance": 45,
+      "base_capacity": 4000,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 4.75,
+        "afternoon": 2.5,
+        "evening": 4.375,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 10,
+      "traffic_flow": {
+        "morning": 3800,
+        "afternoon": 2000,
+        "evening": 3500,
+        "night": 800
+      }
+    },
+    {
+      "from_node": "N14",
+      "to_node": "N13",
+      "distance": 35.5,
+      "base_capacity": 3800,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 4.8,
+        "afternoon": 2.533,
+        "evening": 4.4,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 9,
+      "traffic_flow": {
+        "morning": 3600,
+        "afternoon": 1900,
+        "evening": 3300,
+        "night": 750
+      }
+    },
+    {
+      "from_node": "F1",
+      "to_node": "N05",
+      "distance": 7.5,
+      "base_capacity": 3500,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 2.75,
+        "afternoon": 1.833,
+        "evening": 2.583,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 9,
+      "traffic_flow": {
+        "morning": 3300,
+        "afternoon": 2200,
+        "evening": 3100,
+        "night": 1200
+      }
+    },
+    {
+      "from_node": "F1",
+      "to_node": "N02",
+      "distance": 9.2,
+      "base_capacity": 3200,
+      "road_condition": "good",
+      "traffic_factors": {
+        "morning": 2.727,
+        "afternoon": 1.818,
+        "evening": 2.545,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 8,
+      "traffic_flow": {
+        "morning": 3000,
+        "afternoon": 2000,
+        "evening": 2800,
+        "night": 1100
+      }
+    },
+    {
+      "from_node": "F2",
+      "to_node": "N03",
+      "distance": 2.5,
+      "base_capacity": 2000,
+      "road_condition": "good",
+      "traffic_factors": {
+        "morning": 2.111,
+        "afternoon": 1.778,
+        "evening": 2,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 7,
+      "traffic_flow": {
+        "morning": 1900,
+        "afternoon": 1600,
+        "evening": 1800,
+        "night": 900
+      }
+    },
+    {
+      "from_node": "F7",
+      "to_node": "N15",
+      "distance": 8.3,
+      "base_capacity": 2800,
+      "road_condition": "good",
+      "traffic_factors": {
+        "morning": 4.727,
+        "afternoon": 2.727,
+        "evening": 4.364,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 8,
+      "traffic_flow": {
+        "morning": 2600,
+        "afternoon": 1500,
+        "evening": 2400,
+        "night": 550
+      }
+    },
+    {
+      "from_node": "F8",
+      "to_node": "N04",
+      "distance": 6.1,
+      "base_capacity": 3000,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 4.667,
+        "afternoon": 2.667,
+        "evening": 4.333,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": false,
+      "condition_score": 9,
+      "traffic_flow": {
+        "morning": 2800,
+        "afternoon": 1600,
+        "evening": 2600,
+        "night": 600
+      }
+    }
+  ],
+  "proposed_roads": [
+    {
+      "from_node": "N01",
+      "to_node": "N04",
+      "distance": 22.8,
+      "base_capacity": 4000,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 1,
+        "afternoon": 1,
+        "evening": 1,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": true,
+      "construction_cost_million_egp": 450
+    },
+    {
+      "from_node": "N01",
+      "to_node": "N14",
+      "distance": 25.3,
+      "base_capacity": 3800,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 1,
+        "afternoon": 1,
+        "evening": 1,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": true,
+      "construction_cost_million_egp": 500
+    },
+    {
+      "from_node": "N02",
+      "to_node": "N13",
+      "distance": 48.2,
+      "base_capacity": 4500,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 1,
+        "afternoon": 1,
+        "evening": 1,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": true,
+      "construction_cost_million_egp": 950
+    },
+    {
+      "from_node": "N03",
+      "to_node": "N13",
+      "distance": 56.7,
+      "base_capacity": 4500,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 1,
+        "afternoon": 1,
+        "evening": 1,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": true,
+      "construction_cost_million_egp": 1100
+    },
+    {
+      "from_node": "N05",
+      "to_node": "N04",
+      "distance": 16.8,
+      "base_capacity": 3500,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 1,
+        "afternoon": 1,
+        "evening": 1,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": true,
+      "construction_cost_million_egp": 320
+    },
+    {
+      "from_node": "N06",
+      "to_node": "N08",
+      "distance": 7.5,
+      "base_capacity": 2500,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 1,
+        "afternoon": 1,
+        "evening": 1,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": true,
+      "construction_cost_million_egp": 150
+    },
+    {
+      "from_node": "N07",
+      "to_node": "N13",
+      "distance": 82.3,
+      "base_capacity": 4000,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 1,
+        "afternoon": 1,
+        "evening": 1,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": true,
+      "construction_cost_million_egp": 1600
+    },
+    {
+      "from_node": "N09",
+      "to_node": "N11",
+      "distance": 6.9,
+      "base_capacity": 2800,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 1,
+        "afternoon": 1,
+        "evening": 1,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": true,
+      "construction_cost_million_egp": 140
+    },
+    {
+      "from_node": "N10",
+      "to_node": "F7",
+      "distance": 27.4,
+      "base_capacity": 3200,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 1,
+        "afternoon": 1,
+        "evening": 1,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": true,
+      "construction_cost_million_egp": 550
+    },
+    {
+      "from_node": "N11",
+      "to_node": "N13",
+      "distance": 62.1,
+      "base_capacity": 4200,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 1,
+        "afternoon": 1,
+        "evening": 1,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": true,
+      "construction_cost_million_egp": 1250
+    },
+    {
+      "from_node": "N12",
+      "to_node": "N14",
+      "distance": 30.5,
+      "base_capacity": 3600,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 1,
+        "afternoon": 1,
+        "evening": 1,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": true,
+      "construction_cost_million_egp": 610
+    },
+    {
+      "from_node": "N14",
+      "to_node": "N05",
+      "distance": 18.2,
+      "base_capacity": 3300,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 1,
+        "afternoon": 1,
+        "evening": 1,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": true,
+      "construction_cost_million_egp": 360
+    },
+    {
+      "from_node": "N15",
+      "to_node": "N09",
+      "distance": 22.7,
+      "base_capacity": 3000,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 1,
+        "afternoon": 1,
+        "evening": 1,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": true,
+      "construction_cost_million_egp": 450
+    },
+    {
+      "from_node": "F1",
+      "to_node": "N13",
+      "distance": 40.2,
+      "base_capacity": 4000,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 1,
+        "afternoon": 1,
+        "evening": 1,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": true,
+      "construction_cost_million_egp": 800
+    },
+    {
+      "from_node": "F7",
+      "to_node": "N09",
+      "distance": 26.8,
+      "base_capacity": 3200,
+      "road_condition": "excellent",
+      "traffic_factors": {
+        "morning": 1,
+        "afternoon": 1,
+        "evening": 1,
+        "night": 1
+      },
+      "is_bidirectional": true,
+      "is_proposed": true,
+      "construction_cost_million_egp": 540
+    }
+  ]
+}
