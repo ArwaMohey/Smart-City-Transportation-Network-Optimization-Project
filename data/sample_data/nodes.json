@@ -1,0 +1,206 @@
+{
+  "neighborhoods": [
+    {
+      "id": "N01",
+      "name": "Maadi",
+      "node_type": "neighborhood",
+      "population": 250000,
+      "x_coordinate": 31.25,
+      "y_coordinate": 29.96
+    },
+    {
+      "id": "N02",
+      "name": "Nasr City",
+      "node_type": "neighborhood",
+      "population": 500000,
+      "x_coordinate": 31.34,
+      "y_coordinate": 30.06
+    },
+    {
+      "id": "N03",
+      "name": "Downtown Cairo",
+      "node_type": "neighborhood",
+      "population": 100000,
+      "x_coordinate": 31.24,
+      "y_coordinate": 30.04
+    },
+    {
+      "id": "N04",
+      "name": "New Cairo",
+      "node_type": "neighborhood",
+      "population": 300000,
+      "x_coordinate": 31.47,
+      "y_coordinate": 30.03
+    },
+    {
+      "id": "N05",
+      "name": "Heliopolis",
+      "node_type": "neighborhood",
+      "population": 200000,
+      "x_coordinate": 31.32,
+      "y_coordinate": 30.09
+    },
+    {
+      "id": "N06",
+      "name": "Zamalek",
+      "node_type": "neighborhood",
+      "population": 50000,
+      "x_coordinate": 31.22,
+      "y_coordinate": 30.06
+    },
+    {
+      "id": "N07",
+      "name": "6th October City",
+      "node_type": "neighborhood",
+      "population": 400000,
+      "x_coordinate": 30.98,
+      "y_coordinate": 29.93
+    },
+    {
+      "id": "N08",
+      "name": "Giza",
+      "node_type": "neighborhood",
+      "population": 550000,
+      "x_coordinate": 31.21,
+      "y_coordinate": 29.99
+    },
+    {
+      "id": "N09",
+      "name": "Mohandessin",
+      "node_type": "neighborhood",
+      "population": 180000,
+      "x_coordinate": 31.2,
+      "y_coordinate": 30.05
+    },
+    {
+      "id": "N10",
+      "name": "Dokki",
+      "node_type": "neighborhood",
+      "population": 220000,
+      "x_coordinate": 31.21,
+      "y_coordinate": 30.03
+    },
+    {
+      "id": "N11",
+      "name": "Shubra",
+      "node_type": "neighborhood",
+      "population": 450000,
+      "x_coordinate": 31.24,
+      "y_coordinate": 30.11
+    },
+    {
+      "id": "N12",
+      "name": "Helwan",
+      "node_type": "neighborhood",
+      "population": 350000,
+      "x_coordinate": 31.33,
+      "y_coordinate": 29.85
+    },
+    {
+      "id": "N13",
+      "name": "New Administrative Capital",
+      "node_type": "neighborhood",
+      "population": 50000,
+      "x_coordinate": 31.8,
+      "y_coordinate": 30.02
+    },
+    {
+      "id": "N14",
+      "name": "Al Rehab",
+      "node_type": "neighborhood",
+      "population": 120000,
+      "x_coordinate": 31.49,
+      "y_coordinate": 30.06
+    },
+    {
+      "id": "N15",
+      "name": "Sheikh Zayed",
+      "node_type": "neighborhood",
+      "population": 150000,
+      "x_coordinate": 30.94,
+      "y_coordinate": 30.01
+    }
+  ],
+  "facilities": [
+    {
+      "id": "F1",
+      "name": "Cairo International Airport",
+      "node_type": "airport",
+      "population": 0,
+      "x_coordinate": 31.41,
+      "y_coordinate": 30.11
+    },
+    {
+      "id": "F2",
+      "name": "Ramses Railway Station",
+      "node_type": "transit_hub",
+      "population": 0,
+      "x_coordinate": 31.25,
+      "y_coordinate": 30.06
+    },
+    {
+      "id": "F3",
+      "name": "Cairo University",
+      "node_type": "school",
+      "population": 0,
+      "x_coordinate": 31.21,
+      "y_coordinate": 30.03
+    },
+    {
+      "id": "F4",
+      "name": "Al-Azhar University",
+      "node_type": "school",
+      "population": 0,
+      "x_coordinate": 31.26,
+      "y_coordinate": 30.05
+    },
+    {
+      "id": "F5",
+      "name": "Egyptian Museum",
+      "node_type": "tourism",
+      "population": 0,
+      "x_coordinate": 31.23,
+      "y_coordinate": 30.05
+    },
+    {
+      "id": "F6",
+      "name": "Cairo International Stadium",
+      "node_type": "sports",
+      "population": 0,
+      "x_coordinate": 31.3,
+      "y_coordinate": 30.07
+    },
+    {
+      "id": "F7",
+      "name": "Smart Village",
+      "node_type": "business",
+      "population": 0,
+      "x_coordinate": 30.97,
+      "y_coordinate": 30.07
+    },
+    {
+      "id": "F8",
+      "name": "Cairo Festival City",
+      "node_type": "commercial",
+      "population": 0,
+      "x_coordinate": 31.4,
+      "y_coordinate": 30.03
+    },
+    {
+      "id": "F9",
+      "name": "Qasr El Aini Hospital",
+      "node_type": "hospital",
+      "population": 0,
+      "x_coordinate": 31.23,
+      "y_coordinate": 30.03
+    },
+    {
+      "id": "F10",
+      "name": "Maadi Military Hospital",
+      "node_type": "hospital",
+      "population": 0,
+      "x_coordinate": 31.25,
+      "y_coordinate": 29.95
+    }
+  ]
+}
