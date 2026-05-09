@@ -143,7 +143,7 @@ def main() -> None:
                 st.dataframe(pd.DataFrame(result["turn_by_turn"]), use_container_width=True)
 
                 route_df = route_map_df(nodes_df, result["best_route"])
-                fig = px.line_map(
+                fig = px.line_mapbox(
                     route_df,
                     lat="latitude",
                     lon="longitude",
@@ -152,7 +152,7 @@ def main() -> None:
                     zoom=9,
                     height=450,
                 )
-                fig.update_layout(map_style="open-street-map", margin=dict(l=0, r=0, t=0, b=0))
+                fig.update_layout(mapbox_style="open-street-map", margin=dict(l=0, r=0, t=0, b=0))
                 st.plotly_chart(fig, use_container_width=True)
 
     elif section == "Emergency Dispatch":
