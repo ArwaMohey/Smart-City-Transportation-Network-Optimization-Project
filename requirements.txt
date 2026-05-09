@@ -1,7 +1,7 @@
-# Smart City Transportation Network – Python dependencies
-#
-# This project uses only the Python standard library.
-# No third-party packages are required to run the core system.
-#
-# Development / testing dependencies:
+streamlit>=1.36
+scikit-learn>=1.5
+pandas>=2.2
+plotly>=5.22
+folium>=0.17
+networkx>=3.3
 pytest>=7.0
