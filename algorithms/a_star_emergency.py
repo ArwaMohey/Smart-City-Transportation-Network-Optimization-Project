@@ -263,12 +263,14 @@ class EmergencyRouter:
             }
 
         time_saved = normal_cost - emergency_cost
-        improvement_percent = 0.0 if normal_cost == 0 else (time_saved / normal_cost) * 100.0
+        improvement_percent = (
+            0.0 if abs(normal_cost) < 1e-12 else (time_saved / normal_cost) * 100.0
+        )
 
         return {
             "normal_dijkstra_cost": round(normal_cost, 4),
             "emergency_a_star_cost": round(emergency_cost, 4),
             "time_saved": round(time_saved, 4),
             "improvement_percent": round(improvement_percent, 2),
-            "is_improved": time_saved >= 0,
+            "is_improved": time_saved > 0,
         }
