@@ -35,6 +35,15 @@ class TransitOptimizer:
             raise ValueError("transport_data must include a non-empty 'bus_routes' list.")
 
         self._transport_data = transport_data
+        self._raw_bus_routes_by_id: Dict[str, Dict[str, Any]] = {
+            str(route.get("route_id")): route for route in bus_routes
+        }
+        metro_lines = transport_data.get("metro_lines", [])
+        self._metro_stops = {
+            stop
+            for line in metro_lines
+            for stop in line.get("stops", [])
+        }
         self._routes: List[_RouteProfile] = [
             _RouteProfile(
                 route_id=str(route["route_id"]),
@@ -158,20 +167,11 @@ class TransitOptimizer:
         return total
 
     def _analyze_metro_transfers(self) -> List[Dict[str, Any]]:
-        metro_lines = self._transport_data.get("metro_lines", [])
-        metro_stops = {
-            stop
-            for line in metro_lines
-            for stop in line.get("stops", [])
-        }
         transfer_info = []
         for route in self._routes:
-            raw_route = next(
-                (r for r in self._transport_data.get("bus_routes", []) if r.get("route_id") == route.route_id),
-                {},
-            )
+            raw_route = self._raw_bus_routes_by_id.get(route.route_id, {})
             stops = raw_route.get("stops", [])
-            transfer_points = [stop for stop in stops if stop in metro_stops]
+            transfer_points = [stop for stop in stops if stop in self._metro_stops]
             transfer_info.append(
                 {
                     "route_id": route.route_id,
