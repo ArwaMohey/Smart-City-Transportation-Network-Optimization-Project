@@ -28,6 +28,7 @@ if str(_PROJECT_ROOT) not in sys.path:
 from data.data_loader import DataLoader
 from utils.enums import NodeType, TimeOfDay
 from algorithms.mst_infrastructure import MSTOptimizer
+from algorithms.dijkstra_routing import TrafficRouter
 
 
 def run_mst_demo(graph, data_dir: Path) -> None:
@@ -73,6 +74,97 @@ def run_mst_demo(graph, data_dir: Path) -> None:
 
     # Full visual breakdown.
     optimizer.visualize()
+
+
+def run_routing_demo(graph) -> None:
+    """Run Member 3 routing scenarios using time-dependent Dijkstra."""
+    logger.info("=" * 60)
+    logger.info("Member 3 – Routing & Traffic Module (Dijkstra)")
+    logger.info("=" * 60)
+
+    router = TrafficRouter(graph)
+    source, destination = "N01", "N13"
+
+    # 1) Morning Peak scenario
+    morning_result = router.find_best_route(
+        source,
+        destination,
+        time_of_day="Morning Peak",
+    )
+    logger.info("-" * 60)
+    logger.info(
+        "Morning Peak route %s -> %s | cost=%.4f | path=%s",
+        source,
+        destination,
+        morning_result["total_travel_cost"],
+        " -> ".join(morning_result["best_route"]),
+    )
+    for step in morning_result["turn_by_turn"]:
+        logger.info(
+            "  Step %d: %s -> %s | dist=%.2f km | factor=%.3f | cost=%.4f | congestion=%s",
+            step["step"],
+            step["from"],
+            step["to"],
+            step["distance_km"],
+            step["traffic_factor"],
+            step["dynamic_cost"],
+            step["congestion_level"],
+        )
+
+    # 2) Night scenario
+    night_result = router.find_best_route(source, destination, time_of_day=TimeOfDay.NIGHT)
+    logger.info("-" * 60)
+    logger.info(
+        "Night route %s -> %s | cost=%.4f | path=%s",
+        source,
+        destination,
+        night_result["total_travel_cost"],
+        " -> ".join(night_result["best_route"]),
+    )
+    for step in night_result["turn_by_turn"]:
+        logger.info(
+            "  Step %d: %s -> %s | dist=%.2f km | factor=%.3f | cost=%.4f | congestion=%s",
+            step["step"],
+            step["from"],
+            step["to"],
+            step["distance_km"],
+            step["traffic_factor"],
+            step["dynamic_cost"],
+            step["congestion_level"],
+        )
+
+    # 3) Morning + simulated closure to force alternate route
+    closed_roads = []
+    if len(morning_result["best_route"]) > 1:
+        closed_roads.append(
+            (morning_result["best_route"][0], morning_result["best_route"][1])
+        )
+
+    closure_result = router.find_best_route(
+        source,
+        destination,
+        time_of_day="Morning Peak",
+        closed_roads=closed_roads,
+    )
+    logger.info("-" * 60)
+    logger.info(
+        "Morning Peak with closure %s | cost=%s | path=%s",
+        closed_roads,
+        closure_result["total_travel_cost"],
+        " -> ".join(closure_result["best_route"]) if closure_result["best_route"] else "NO ROUTE",
+    )
+    logger.info("Routing decisions: %s", closure_result["routing_decisions"])
+    for step in closure_result["turn_by_turn"]:
+        logger.info(
+            "  Step %d: %s -> %s | dist=%.2f km | factor=%.3f | cost=%.4f | congestion=%s",
+            step["step"],
+            step["from"],
+            step["to"],
+            step["distance_km"],
+            step["traffic_factor"],
+            step["dynamic_cost"],
+            step["congestion_level"],
+        )
 
 
 def main() -> None:
@@ -172,6 +264,9 @@ def main() -> None:
 
     # ── 9. MST Infrastructure Demo (Member 2) ────────────────────────────
     run_mst_demo(graph, data_dir)
+
+    # ── 10. Routing & Traffic Demo (Member 3) ────────────────────────────
+    run_routing_demo(graph)
 
 
 if __name__ == "__main__":
