@@ -17,6 +17,13 @@ from utils.enums import TimeOfDay
 
 logger = logging.getLogger("smart_city.algorithms.dijkstra_routing")
 
+# Default multiplier used when a specific time bucket is missing on an edge.
+DEFAULT_TRAFFIC_FACTOR: float = 1.0
+# Traffic-factor thresholds used to classify congestion severity labels.
+HEAVY_CONGESTION_THRESHOLD: float = 3.5
+MODERATE_CONGESTION_THRESHOLD: float = 2.0
+LIGHT_CONGESTION_THRESHOLD: float = 1.2
+
 
 class TrafficRouter:
     """Dijkstra routing engine with time-dependent edge costs and closures."""
@@ -65,6 +72,7 @@ class TrafficRouter:
             }
 
         blocked_edges = self._build_blocked_edge_set(closed_roads)
+        # Tracks only closures encountered during search (subset of blocked_edges).
         skipped_closed_edges: Set[Tuple[str, str]] = set()
 
         distances: Dict[str, float] = {source_id: 0.0}
@@ -166,17 +174,19 @@ class TrafficRouter:
     ) -> List[Dict[str, Any]]:
         turns: List[Dict[str, Any]] = []
 
-        for step_idx, (from_node, to_node) in enumerate(zip(route, route[1:]), start=1):
+        for step_number, (from_node, to_node) in enumerate(zip(route, route[1:]), start=1):
             edge = self._find_edge(from_node, to_node)
             if edge is None:
                 continue
 
             dynamic_cost = self._graph.get_dynamic_edge_weight(from_node, to_node, time_of_day)
-            traffic_factor = float(edge.traffic_factors.get(time_of_day, 1.0))
+            traffic_factor = float(
+                edge.traffic_factors.get(time_of_day, DEFAULT_TRAFFIC_FACTOR)
+            )
 
             turns.append(
                 {
-                    "step": step_idx,
+                    "step": step_number,
                     "from": from_node,
                     "to": to_node,
                     "distance_km": round(edge.distance, 3),
@@ -196,11 +206,11 @@ class TrafficRouter:
         if not closed_roads:
             return blocked
 
-        for u, v in closed_roads:
-            blocked.add((u, v))
-            # In this project roads are mainly bidirectional; blocking both
-            # directions better represents a full road closure.
-            blocked.add((v, u))
+        for from_node, to_node in closed_roads:
+            blocked.add((from_node, to_node))
+            # For undirected graphs, a closure blocks the whole segment.
+            if not self._graph.directed:
+                blocked.add((to_node, from_node))
         return blocked
 
     @staticmethod
@@ -231,13 +241,13 @@ class TrafficRouter:
 
     @staticmethod
     def _congestion_label(traffic_factor: float) -> str:
-        if traffic_factor >= 3.5:
+        if traffic_factor >= HEAVY_CONGESTION_THRESHOLD:
             return "heavy"
-        if traffic_factor >= 2.0:
+        if traffic_factor >= MODERATE_CONGESTION_THRESHOLD:
             return "moderate"
-        if traffic_factor >= 1.2:
+        if traffic_factor >= LIGHT_CONGESTION_THRESHOLD:
             return "light"
-        return "free_flow"
+        return "free flow"
 
     @staticmethod
     def _format_closed_roads(

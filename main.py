@@ -89,7 +89,7 @@ def run_routing_demo(graph) -> None:
     morning_result = router.find_best_route(
         source,
         destination,
-        time_of_day="Morning Peak",
+        time_of_day=TimeOfDay.MORNING,
     )
     logger.info("-" * 60)
     logger.info(
@@ -135,7 +135,7 @@ def run_routing_demo(graph) -> None:
 
     # 3) Morning + simulated closure to force alternate route
     closed_roads = []
-    if len(morning_result["best_route"]) > 1:
+    if morning_result["found"] and len(morning_result["best_route"]) > 1:
         closed_roads.append(
             (morning_result["best_route"][0], morning_result["best_route"][1])
         )
@@ -143,14 +143,16 @@ def run_routing_demo(graph) -> None:
     closure_result = router.find_best_route(
         source,
         destination,
-        time_of_day="Morning Peak",
+        time_of_day=TimeOfDay.MORNING,
         closed_roads=closed_roads,
     )
+    closure_cost = closure_result["total_travel_cost"]
+    closure_cost_text = "N/A" if closure_cost is None else f"{closure_cost:.4f}"
     logger.info("-" * 60)
     logger.info(
         "Morning Peak with closure %s | cost=%s | path=%s",
         closed_roads,
-        closure_result["total_travel_cost"],
+        closure_cost_text,
         " -> ".join(closure_result["best_route"]) if closure_result["best_route"] else "NO ROUTE",
     )
     logger.info("Routing decisions: %s", closure_result["routing_decisions"])
