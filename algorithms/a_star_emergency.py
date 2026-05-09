@@ -72,14 +72,19 @@ class EmergencyRouter:
             }
 
         open_heap: List[Tuple[float, str]] = []
-        heapq.heappush(open_heap, (self._heuristic(source_node, dest_node), source_id))
+        source_f_score = 0.0 + self._heuristic(source_node, dest_node)
+        heapq.heappush(open_heap, (source_f_score, source_id))
 
         came_from: Dict[str, str] = {}
         g_score: Dict[str, float] = {source_id: 0.0}
+        closed_set: set[str] = set()
         visited_count = 0
 
         while open_heap:
             _, current = heapq.heappop(open_heap)
+            if current in closed_set:
+                continue
+            closed_set.add(current)
             visited_count += 1
 
             if current == dest_id:
@@ -247,13 +252,14 @@ class EmergencyRouter:
     @staticmethod
     def _build_comparison(
         emergency_cost: Optional[float], normal_cost: Optional[float]
-    ) -> Dict[str, Optional[float]]:
+    ) -> Dict[str, Optional[float] | bool]:
         if emergency_cost is None or normal_cost is None:
             return {
                 "normal_dijkstra_cost": normal_cost,
                 "emergency_a_star_cost": emergency_cost,
                 "time_saved": None,
                 "improvement_percent": None,
+                "is_improved": False,
             }
 
         time_saved = normal_cost - emergency_cost
@@ -264,4 +270,5 @@ class EmergencyRouter:
             "emergency_a_star_cost": round(emergency_cost, 4),
             "time_saved": round(time_saved, 4),
             "improvement_percent": round(improvement_percent, 2),
+            "is_improved": time_saved >= 0,
         }
