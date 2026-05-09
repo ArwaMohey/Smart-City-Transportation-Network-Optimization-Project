@@ -31,6 +31,11 @@ from algorithms.mst_infrastructure import MSTOptimizer
 from algorithms.dijkstra_routing import TrafficRouter
 
 
+def _format_cost(cost: float | None) -> str:
+    """Format route cost safely for logging."""
+    return "N/A" if cost is None else f"{cost:.4f}"
+
+
 def run_mst_demo(graph, data_dir: Path) -> None:
     """Run the MST Infrastructure optimizer on *graph* and log the results.
 
@@ -105,7 +110,7 @@ def run_routing_demo(graph) -> None:
             step["step"],
             step["from"],
             step["to"],
-            step["distance_km"],
+            step["distance"],
             step["traffic_factor"],
             step["dynamic_cost"],
             step["congestion_level"],
@@ -127,7 +132,7 @@ def run_routing_demo(graph) -> None:
             step["step"],
             step["from"],
             step["to"],
-            step["distance_km"],
+            step["distance"],
             step["traffic_factor"],
             step["dynamic_cost"],
             step["congestion_level"],
@@ -146,13 +151,11 @@ def run_routing_demo(graph) -> None:
         time_of_day=TimeOfDay.MORNING,
         closed_roads=closed_roads,
     )
-    closure_cost = closure_result["total_travel_cost"]
-    closure_cost_text = "N/A" if closure_cost is None else f"{closure_cost:.4f}"
     logger.info("-" * 60)
     logger.info(
         "Morning Peak with closure %s | cost=%s | path=%s",
         closed_roads,
-        closure_cost_text,
+        _format_cost(closure_result["total_travel_cost"]),
         " -> ".join(closure_result["best_route"]) if closure_result["best_route"] else "NO ROUTE",
     )
     logger.info("Routing decisions: %s", closure_result["routing_decisions"])
@@ -162,7 +165,7 @@ def run_routing_demo(graph) -> None:
             step["step"],
             step["from"],
             step["to"],
-            step["distance_km"],
+            step["distance"],
             step["traffic_factor"],
             step["dynamic_cost"],
             step["congestion_level"],

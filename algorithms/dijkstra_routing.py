@@ -180,16 +180,14 @@ class TrafficRouter:
                 continue
 
             dynamic_cost = self._graph.get_dynamic_edge_weight(from_node, to_node, time_of_day)
-            traffic_factor = float(
-                edge.traffic_factors.get(time_of_day, DEFAULT_TRAFFIC_FACTOR)
-            )
+            traffic_factor = edge.traffic_factors.get(time_of_day, DEFAULT_TRAFFIC_FACTOR)
 
             turns.append(
                 {
                     "step": step_number,
                     "from": from_node,
                     "to": to_node,
-                    "distance_km": round(edge.distance, 3),
+                    "distance": round(edge.distance, 3),
                     "road_condition": edge.road_condition.value,
                     "traffic_factor": round(traffic_factor, 3),
                     "dynamic_cost": round(dynamic_cost, 4),
