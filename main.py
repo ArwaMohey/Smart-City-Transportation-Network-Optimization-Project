@@ -30,6 +30,7 @@ from utils.enums import NodeType, TimeOfDay
 from algorithms.mst_infrastructure import MSTOptimizer
 from algorithms.dijkstra_routing import TrafficRouter
 from algorithms.a_star_emergency import EmergencyRouter
+from algorithms.dp_transit_optimization import TransitOptimizer
 
 
 def _format_cost(cost: float | None) -> str:
@@ -213,6 +214,48 @@ def run_emergency_routing_demo(graph) -> None:
     logger.info("Comparison log                : %s", emergency_result["comparison"])
 
 
+def run_transit_optimization_demo(transport: dict) -> None:
+    """Run Member 5 transit fleet optimization using Dynamic Programming."""
+    logger.info("=" * 60)
+    logger.info("Member 5 – Public Transit Optimization Module (DP)")
+    logger.info("=" * 60)
+
+    optimizer = TransitOptimizer(transport)
+    result = optimizer.optimize_bus_allocation(extra_buses=30)
+
+    logger.info("Total available fleet (with +30 buses): %d", result["total_bus_fleet"])
+    logger.info("Old utility score: %.3f", result["old_utility_score"])
+    logger.info("New utility score: %.3f", result["new_utility_score"])
+    logger.info("Utility improvement: %.3f", result["utility_improvement"])
+    logger.info(
+        "Improvement percent: %s",
+        "N/A" if result["improvement_percent"] is None else f"{result['improvement_percent']:.2f}%",
+    )
+
+    logger.info("-" * 60)
+    logger.info("Old vs New bus assignments by route:")
+    for route in result["route_level_analysis"]:
+        logger.info(
+            "  [%s] old=%d -> new=%d (delta=%+d) | old_u=%.3f new_u=%.3f",
+            route["route_id"],
+            route["old_buses"],
+            route["new_buses"],
+            route["delta_buses"],
+            route["old_utility"],
+            route["new_utility"],
+        )
+
+    logger.info("-" * 60)
+    logger.info("Metro transfer points per bus route:")
+    for item in result["metro_transfer_analysis"]:
+        logger.info(
+            "  [%s] transfers=%d stops=%s",
+            item["route_id"],
+            item["transfer_count"],
+            ", ".join(item["transfer_points"]) if item["transfer_points"] else "none",
+        )
+
+
 def main() -> None:
     """Load the sample city graph, validate it, and demonstrate the query API."""
 
@@ -316,6 +359,9 @@ def main() -> None:
 
     # ── 11. Emergency Routing Demo (Member 4) ────────────────────────────
     run_emergency_routing_demo(graph)
+
+    # ── 12. Public Transit Optimization Demo (Member 5) ──────────────────
+    run_transit_optimization_demo(transport)
 
 
 if __name__ == "__main__":
