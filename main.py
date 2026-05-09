@@ -27,6 +27,52 @@ if str(_PROJECT_ROOT) not in sys.path:
 
 from data.data_loader import DataLoader
 from utils.enums import NodeType, TimeOfDay
+from algorithms.mst_infrastructure import MSTOptimizer
+
+
+def run_mst_demo(graph, data_dir: Path) -> None:
+    """Run the MST Infrastructure optimizer on *graph* and log the results.
+
+    Args:
+        graph:    The fully loaded and validated :class:`~core.graph.Graph`.
+        data_dir: Path to the data directory (needed to resolve construction
+                  costs for proposed roads).
+    """
+    logger.info("=" * 60)
+    logger.info("Member 2 – MST Infrastructure Module")
+    logger.info("=" * 60)
+
+    optimizer = MSTOptimizer(graph, data_dir=data_dir)
+    mst_edges = optimizer.run()
+
+    logger.info("MST edge count : %d", len(mst_edges))
+    logger.info(
+        "Total distance : %.2f km", optimizer.total_distance_km
+    )
+    logger.info(
+        "Construction cost (proposed roads): %.1f M EGP",
+        optimizer.total_construction_cost,
+    )
+
+    analysis = optimizer.get_cost_analysis()
+    logger.info("-" * 60)
+    logger.info(
+        "Existing roads in MST : %d", analysis["existing_road_count"]
+    )
+    logger.info(
+        "Proposed roads in MST : %d", analysis["proposed_road_count"]
+    )
+    logger.info(
+        "Hospitals covered     : %s",
+        ", ".join(analysis["hospital_nodes_covered"]) or "none",
+    )
+    logger.info(
+        "Critical facilities   : %s",
+        ", ".join(analysis["critical_facility_nodes_covered"]) or "none",
+    )
+
+    # Full visual breakdown.
+    optimizer.visualize()
 
 
 def main() -> None:
@@ -123,6 +169,9 @@ def main() -> None:
     logger.info("=" * 60)
     logger.info("System ready. Algorithm teams can now consume the graph.")
     logger.info("=" * 60)
+
+    # ── 9. MST Infrastructure Demo (Member 2) ────────────────────────────
+    run_mst_demo(graph, data_dir)
 
 
 if __name__ == "__main__":
