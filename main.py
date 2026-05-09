@@ -29,6 +29,7 @@ from data.data_loader import DataLoader
 from utils.enums import NodeType, TimeOfDay
 from algorithms.mst_infrastructure import MSTOptimizer
 from algorithms.dijkstra_routing import TrafficRouter
+from algorithms.a_star_emergency import EmergencyRouter
 
 
 def _format_cost(cost: float | None) -> str:
@@ -172,6 +173,46 @@ def run_routing_demo(graph) -> None:
         )
 
 
+def run_emergency_routing_demo(graph) -> None:
+    """Run Member 4 emergency A* routing and compare against normal Dijkstra."""
+    logger.info("=" * 60)
+    logger.info("Member 4 – Emergency Routing Module (A*)")
+    logger.info("=" * 60)
+
+    source, destination = "N07", "F9"
+    router = EmergencyRouter(graph, heuristic_mode="euclidean")
+    emergency_result = router.find_emergency_route(
+        source,
+        destination,
+        time_of_day=TimeOfDay.MORNING,
+    )
+
+    normal_cost = emergency_result["comparison"]["normal_dijkstra_cost"]
+    emergency_cost = emergency_result["comparison"]["emergency_a_star_cost"]
+
+    logger.info(
+        "Emergency dispatch %s -> %s | A* route=%s",
+        source,
+        destination,
+        " -> ".join(emergency_result["fast_emergency_route"])
+        if emergency_result["fast_emergency_route"]
+        else "NO ROUTE",
+    )
+    logger.info("Normal Dijkstra response time : %s", _format_cost(normal_cost))
+    logger.info("Emergency A* response time    : %s", _format_cost(emergency_cost))
+    logger.info(
+        "Time saved                    : %s",
+        _format_cost(emergency_result["comparison"]["time_saved"]),
+    )
+    logger.info(
+        "Improvement                   : %s%%",
+        "N/A"
+        if emergency_result["comparison"]["improvement_percent"] is None
+        else f"{emergency_result['comparison']['improvement_percent']:.2f}",
+    )
+    logger.info("Comparison log                : %s", emergency_result["comparison"])
+
+
 def main() -> None:
     """Load the sample city graph, validate it, and demonstrate the query API."""
 
@@ -272,6 +313,9 @@ def main() -> None:
 
     # ── 10. Routing & Traffic Demo (Member 3) ────────────────────────────
     run_routing_demo(graph)
+
+    # ── 11. Emergency Routing Demo (Member 4) ────────────────────────────
+    run_emergency_routing_demo(graph)
 
 
 if __name__ == "__main__":
